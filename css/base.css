@@ -46,9 +46,3 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-span{
-    position: relative;
-    top: 50%;
-    display: block;
-    text-align: center;   
-}
