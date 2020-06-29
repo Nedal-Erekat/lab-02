@@ -54,7 +54,7 @@ header{
 header h1,select{
 	width: max-content;
 	margin: 20px auto ;
-	border: 2px solid black;
+	/* border: 2px solid black; */
 	display: block;
 	
 }
