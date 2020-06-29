@@ -46,3 +46,23 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+header{
+	background-color: skyblue;
+	overflow: hidden;
+	box-shadow:0 0 10px black;
+}
+header h1,select{
+	width: max-content;
+	margin: 20px auto ;
+	border: 2px solid black;
+	display: block;
+	
+}
+h1{
+	font-size: x-large;
+	font-weight: bolder;
+	font-style: italic;
+	font-family: cursive;
+	color: rgb(0, 0, 0);
+	text-shadow:1px 1px 1px black;
+}
