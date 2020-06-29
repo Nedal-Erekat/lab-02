@@ -1,0 +1,72 @@
+@media screen and (min-width:480px) and (max-width:767px){
+    
+    div{
+        background-color: #eee;
+        margin: auto;
+        border: 1px solid black;
+        border-bottom: none;
+        box-sizing: border-box;
+       
+
+    }
+    #a{
+        background-color:rgb(250, 248, 152) ;
+    }
+    #b{
+        background-color:rgb(45, 45, 83) ;
+    }
+    #c{
+        background-color: rgb(37, 109, 9);
+    }
+    #d{
+        background-color:rgb(208, 205, 252) ;
+    }
+    #f{
+        background-color:rgb(131, 10, 36) ;
+    }
+    #g{
+        background-color:rgb(114, 12, 89) ;
+    }
+    #h{
+        background-color: rgb(238, 70, 48);
+    }
+    #i{
+        background-color: rgb(70, 13, 16);
+    }
+}  
+
+@media screen and (min-width:768px) and (max-width:960px){
+
+
+    div{
+        background-color: #eee;
+        border: 1px solid black;
+        box-sizing: border-box;
+        float: left;
+    }
+    #a{
+        background-color:rgb(152, 152, 250) ;
+    }
+    #b{
+        background-color:rgb(74, 74, 255) ;
+    }
+    #c{
+        background-color: rgb(180, 250, 152);
+    }
+    #d{
+        background-color:rgb(151, 250, 111) ;
+    }
+    #f{
+        background-color:rgb(250, 152, 173) ;
+    }
+    #g{
+        background-color:rgb(250, 152, 225) ;
+    }
+    #h{
+        background-color: rgb(238, 124, 48);
+    }
+    #i{
+        background-color: rgb(53, 53, 78);
+    }
+    
+}
