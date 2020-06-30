@@ -47,9 +47,9 @@ table {
 	border-spacing: 0;
 }
 header{
-	background-color: skyblue;
+	background-color: #85B3D1FF;
 	overflow: hidden;
-	box-shadow:0 0 10px black;
+	box-shadow:0 0 5px #2460A7FF;
 }
 header h1,select{
 	width: max-content;
@@ -63,6 +63,15 @@ h1{
 	font-weight: bolder;
 	font-style: italic;
 	font-family: cursive;
-	color: rgb(0, 0, 0);
+	color: #ffffff;
 	text-shadow:1px 1px 1px black;
+}
+footer {
+	/* height: 100px; */
+	background-color: rgba(135, 207, 235, 0.555);
+	padding: 2%;
+
+}
+body{
+	/* background-color: #B3C7D6FF; */
 }
