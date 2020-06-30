@@ -37,16 +37,13 @@ ProdautShow.prototype.render = function () {
     //solution 3 : mustache
 
     let musTemplate = $('#templateToPhoto').html();
-    console.log(this);
-
     let newObj = Mustache.render(musTemplate, this);
-    console.log(newObj);
     $('.photo-template').append(newObj);
 };
 ProdautShow.prototype.renderList = function () {
     if (listOption.includes(this.keyword) === false) {
         let optionEl = $('<option></option>').text(this.keyword);
-        $('select').append(optionEl);
+        $('#list').append(optionEl);
         listOption.push(this.keyword);
     }
 }
@@ -54,7 +51,6 @@ ProdautShow.prototype.renderList = function () {
 const ajaxSetting = { method: 'get', dataType: 'json' }
 $.ajax('./data/page-1.json', ajaxSetting)
     .then((data) => {
-        console.log("data: " + data);
 
         data.forEach(element => {
             let prod = new ProdautShow(element.title, element.image_url, element.description, element.keyword, element.horns);
@@ -72,15 +68,11 @@ $('#second').on("click", () => {
     $('.photo-template').empty();
     $.ajax('./data/page-2.json', ajaxSetting)
         .then((data) => {
-            console.log("data: " + data);
             gArr = [];
             listOption = [];
-            $('option:not(:first-child)').css('display','none');
-            //    while ($('select:nth-child(2)')) {
 
-            //        $('select:nth-child(2)').remove();
-            //    }
-            // $('select').empty();
+            // $('option:not(:first-child)').css('display', 'none');
+            $('#list').empty();
             data.forEach(element => {
                 let prod = new ProdautShow(element.title, element.image_url, element.description, element.keyword, element.horns);
                 prod.render();
@@ -90,10 +82,10 @@ $('#second').on("click", () => {
 })
 
 
-$('select').on("change", (evnt) => {
+$('#list').on("change", (evnt) => {
     $(".photo-template").empty();
     let str = "";
-    $("select option:selected").each(function () {
+    $("#list option:selected").each(function () {
         str = $(this).text();
     });
 
@@ -109,13 +101,9 @@ $('select').on("change", (evnt) => {
     }
     gArr.forEach((item, i) => {
         let type = item.keyword;
-        console.log('type : ' + type + ' ,str: ' + str);
-        console.log('result :' + str === type);
-
 
         if (str === type) {
-            // console.log('reached hinsidde the condition');
-
+            // solution 1
             // let div = $("<div></div>");
             // let h2 = $("<h2></h2>").text(item.title);
             // let imgEl = $("<img>").attr(`src`, item.imgUrl);
@@ -131,4 +119,51 @@ $('select').on("change", (evnt) => {
 })
 
 
-// add event to s
+
+// Feature 4: Sort the images
+$('#sort').change((event) => {
+    $(".photo-template").empty();
+
+    let str = "";
+    $("#sort option:selected").each(function () {
+        str = $(this).val();
+    });
+    console.log(gArr);
+
+    if (str === 'title') {
+        gArr.sort((a, b) => {
+            if (a.title > b.title) {
+                return 1;
+            }
+            else if (a.title < b.title) {
+                return -1;
+            }
+            else {
+                return 0;
+            }
+
+        });
+
+    };
+    if (str === 'horns') {
+        gArr.sort((a, b) => {
+            if (a.horns > b.horns) {
+                return 1;
+            }
+            else if (a.horns < b.horns) {
+                return -1;
+            }
+            else {
+                return 0;
+            }
+
+        });
+
+    }
+    gArr.forEach((item, i) => {
+
+        let musTemplate = $('#templateToPhoto').html();
+        let newObj = Mustache.render(musTemplate, item);
+        $('.photo-template').append(newObj);
+    });
+})
