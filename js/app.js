@@ -48,6 +48,13 @@ ProdautShow.prototype.renderList = function () {
     }
 }
 
+// function loadData(params) {
+//     const ajaxSetting = { method: 'get', dataType: 'json' }
+// $.ajax('./data/page-1.json', ajaxSetting)
+//     .then((data) => 
+    
+// }
+
 const ajaxSetting = { method: 'get', dataType: 'json' }
 $.ajax('./data/page-1.json', ajaxSetting)
     .then((data) => {
@@ -82,12 +89,15 @@ $('#second').on("click", () => {
 })
 
 
-$('#list').on("change", (evnt) => {
+$('#list').on("change", function (event) {
     $(".photo-template").empty();
-    let str = "";
-    $("#list option:selected").each(function () {
-        str = $(this).text();
-    });
+    // let str = "";
+    // $("#list option:selected").each(function () {
+    //     str = $(this).text();
+    // });
+
+    let str = $(this).val();
+    console.log(str + " this str");
 
 
     if (str === 'Filter by Keyword') {
@@ -121,14 +131,15 @@ $('#list').on("change", (evnt) => {
 
 
 // Feature 4: Sort the images
-$('#sort').change((event) => {
+$('#sort').change(function (event) {
     $(".photo-template").empty();
 
-    let str = "";
-    $("#sort option:selected").each(function () {
-        str = $(this).val();
-    });
-    console.log(gArr);
+    // let str = "";
+    // $("#sort option:selected").each(function () {
+    //     str = $(this).val();
+    // });
+    let str = $(this).val();
+    console.log(str);
 
     if (str === 'title') {
         gArr.sort((a, b) => {
@@ -161,9 +172,12 @@ $('#sort').change((event) => {
 
     }
     gArr.forEach((item, i) => {
+        gArr[i].render();
 
-        let musTemplate = $('#templateToPhoto').html();
-        let newObj = Mustache.render(musTemplate, item);
-        $('.photo-template').append(newObj);
+        // or I can do the following
+
+        /* let musTemplate = $('#templateToPhoto').html();
+         let newObj = Mustache.render(musTemplate, item);
+         $('.photo-template').append(newObj);*/
     });
 })
