@@ -181,3 +181,41 @@ $('#sort').change(function (event) {
          $('.photo-template').append(newObj);*/
     });
 })
+
+
+
+// -------------- test for challenge:
+/*
+let starWarsPeople = [
+    {
+        "name": "Luke Skywalker",
+        "height": "172",
+        "eye_color": "blue"
+    },
+    {
+        "name": "C-3PO",
+        "height": "167",
+        "eye_color": "yellow"
+    },
+    {
+        "name": "R2-D2",
+        "height": "96",
+        "eye_color": "red"
+    }
+];
+
+const templateWithJQuery = () => {
+    // Solution code here...
+    starWarsPeople.forEach(ele => {
+        let newTemplate = $('#template').clone().appendTo('main');
+        newTemplate.find('h2').text(ele.name);
+        newTemplate.find('h3').text(ele.height);
+        newTemplate.find('p').text(ele.eye_color);
+        $('#template').removeAttr('id');
+    });
+}
+templateWithJQuery();
+console.log($('#template:nth-child(2) h2').text());
+console.log($('#template:nth-child(3) h3').text());
+console.log($('#template:nth-child(4) p').text());
+*/
